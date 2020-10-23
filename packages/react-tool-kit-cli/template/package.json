@@ -1,6 +1,6 @@
 {
   "name": "~~name~~",
-  "version": "4.0.1",
+  "version": "1.0.1",
   "description": "react ssr starter",
   "main": "index.js",
   "private": true,
@@ -99,7 +99,6 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "react-tool-kit-server": "^4.0.1",
     "@loadable/component": "5.6.0",
     "apollo-boost": "0.1.12",
     "axios": "0.18.0",
@@ -124,17 +123,18 @@
     "react-redux": "5.0.7",
     "react-router-config": "5.0.1",
     "react-router-dom": "5.0.1",
+    "react-tool-kit-server": "^4.0.1",
     "recompose": "0.30.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "ua-parser-js": "0.7.18"
   },
   "devDependencies": {
-    "react-tool-kit": "^4.0.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.0",
     "http-proxy-middleware": "^0.18.0",
     "jest": "^23.6.0",
-    "prettier": "1.14.0"
+    "prettier": "1.14.0",
+    "react-tool-kit": "^4.0.1"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "react-tool-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React tool kit",
   "main": "src/index.js",
   "bin": {

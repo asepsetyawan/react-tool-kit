@@ -1,5 +1,5 @@
 {
-  "name": "react-tool-kit-utils",
+  "name": "@tools/react-kit-utils",
   "version": "1.0.1",
   "description": "Common utils",
   "source": "src/index.js",

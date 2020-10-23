@@ -1,6 +1,6 @@
 {
   "name": "react-tool-kit-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React tool kit",
   "main": "src/index.js",
   "bin": {

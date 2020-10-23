@@ -1,6 +1,6 @@
 {
-  "name": "@tools/react-kit-utils",
-  "version": "1.0.3",
+  "name": "@asep.setiawan/react-kit-utils",
+  "version": "1.0.5",
   "description": "Common utils",
   "source": "src/index.js",
   "main": "lib/index.js",

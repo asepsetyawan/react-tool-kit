@@ -1,0 +1,22 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "babel-plugin-dynamic-import-node",
+    "@babel/plugin-proposal-class-properties",
+    "@loadable/babel-plugin",
+    [
+      "babel-plugin-transform-require-ignore",
+      {
+        "extensions": [".css", ".sass", ".scss"]
+      }
+    ]
+  ]
+}

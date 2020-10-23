@@ -41,7 +41,7 @@
     "react-dom": "*",
     "react-helmet-async": "0.1.0",
     "react-router-dom": "^5.0.0",
-    "react-tool-kit": "*",
+    "react-tool-kit-cli": "*",
     "redux": "*"
   },
   "dependencies": {

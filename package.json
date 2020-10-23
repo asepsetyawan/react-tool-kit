@@ -1,0 +1,39 @@
+{
+  "name": "react-tool-kit",
+  "description": "React tool kit monorepo",
+  "author": "Asep Setyawan",
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean",
+    "ls": "lerna ls",
+    "test": "lerna run --stream test",
+    "lint": "lerna run --stream lint",
+    "watch": "lerna run --parallel watch",
+    "build": "lerna run build",
+    "build:lib": "lerna run build --ignore=~~name~~",
+    "prerelease": "npm run build:lib",
+    "release": "lerna publish",
+    "release:next": "npm run release -- --npm-tag=next",
+    "exec:tmp": "lerna exec --scope ~~name~~ --",
+    "exec:server": "lerna exec --scope react-tool-kit-server --",
+    "exec:utils": "lerna exec --scope react-tool-kit-utils --",
+    "server:test": "npm run exec:server -- npm run test:dev --"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asepsetyawan/react-tool-kit.git"
+  },
+  "homepage": "https://github.com/asepsetyawan/react-tool-kit#readme",
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "jest": "^23.6.0",
+    "lerna": "^2.11.0"
+  }
+}

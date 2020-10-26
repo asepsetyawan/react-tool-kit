@@ -1,6 +1,6 @@
 {
   "name": "@asep.setiawan/react-tool-kit-server",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Express server for react-tool-kit",
   "source": "src/index.js",
   "main": "lib/index.js",

@@ -31,7 +31,7 @@ export function createReactServer(config) {
   app.use(logger);
 
   if (process.env.NODE_ENV === 'development') {
-    const { devMiddleware } = require('react-tool-kit/lib/express-dev');
+    const { devMiddleware } = require('@asep.setiawan/react-tool-kit/lib/express-dev');
     devMiddleware(app);
   }
 

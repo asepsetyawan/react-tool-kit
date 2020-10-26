@@ -16,7 +16,7 @@ export function setItem(key, value) {
   if (!isLocalStorageReady()) {
     return;
   }
-  localStorage.setItem(key, value);
+  localStorage.setItem(key, value); 
 }
 
 export function clearItem(key) {

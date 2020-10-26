@@ -7,23 +7,23 @@ The CLI for starting dev server, bundling, and common utilities.
 ## Install
 
 ```sh
-yarn add -D react-tool-kit
+yarn add -D @asep.setiawan/react-tool-kit
 ```
 
 ## Commands
 
 ```sh
-react-tool-kit init <my-app-name>
+@asep.setiawan/react-tools-kit init <my-app-name>
 
-react-tool-kit start
+@asep.setiawan/react-tool-kit start
 
-react-tool-kit build
+@asep.setiawan/react-tool-kit build
 
-react-tool-kit build-dll
+@asep.setiawan/react-tool-kit build-dll
 
-react-tool-kit lint
+@asep.setiawan/react-tool-kit lint
 
-react-tool-kit clean
+@asep.setiawan/react-tool-kit clean
 ```
 
 ### License

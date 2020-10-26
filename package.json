@@ -16,8 +16,8 @@
     "release": "lerna publish",
     "release:next": "npm run release -- --npm-tag=next",
     "exec:tmp": "lerna exec --scope ~~name~~ --",
-    "exec:server": "lerna exec --scope react-tool-kit-server --",
-    "exec:utils": "lerna exec --scope react-tool-kit-utils --",
+    "exec:server": "lerna exec --scope @asep.setiawan/react-tools-kit-server --",
+    "exec:utils": "lerna exec --scope @asep.setiawan/react-tools-kit-utils --",
     "server:test": "npm run exec:server -- npm run test:dev --"
   },
   "repository": {

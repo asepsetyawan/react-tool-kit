@@ -7,8 +7,9 @@ React tools kit generator
 ## Structure
 
 The project consists of following packages:
-- [react-tool-kit-cli]
-- [react-tool-kit-server]
+- react-tool-kit-cli
+- react-tool-kit-server
+- react-tool-kit-utils
 
 They're managed by [Lerna](https://github.com/lerna/lerna) so you don't need to `npm link` manually :D
 

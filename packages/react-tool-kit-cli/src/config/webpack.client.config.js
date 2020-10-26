@@ -19,7 +19,7 @@ const kitConfig = generateKitConfig(project);
 
 let vendorManifest;
 
-if (project.globals.__DEV__) {
+if (project.globals.__DEV__) { 
   try {
     vendorManifest = require(project.paths.dist('./vendorDll-manifest.json'));
     log('DLL ready.');

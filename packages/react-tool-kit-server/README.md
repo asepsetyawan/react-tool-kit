@@ -11,7 +11,7 @@ yarn add react-tool-kit-server
 ## API
 
 ```js
-import { createReactServer } from 'react-tool-kit-server';
+import { createReactServer } from '@asep.setiawan/react-tool-kit-server';
 
 import createStore from '../store/createStore';
 import { getInitialData } from '../routes';

@@ -1,7 +1,7 @@
 import '@babel/polyfill'
 import React from 'react'
 
-import { createReactServer } from 'react-tool-kit-server'
+import { createReactServer } from '@asep.setiawan/react-tool-kit-server'
 
 import createApolloClient from '../apollo/client-ssr'
 import createStore from '../store/createStore'

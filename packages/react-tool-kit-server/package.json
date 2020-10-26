@@ -1,6 +1,6 @@
 {
   "name": "@asep.setiawan/react-tool-kit-server",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Express server for react-tool-kit",
   "source": "src/index.js",
   "main": "lib/index.js",
@@ -34,6 +34,7 @@
     ]
   },
   "peerDependencies": {
+    "@asep.setiawan/react-tool-kit": "*",
     "apollo-boost": "*",
     "graphql": "*",
     "react": "*",
@@ -41,7 +42,6 @@
     "react-dom": "*",
     "react-helmet-async": "0.1.0",
     "react-router-dom": "^5.0.0",
-    "react-tool-kit-cli": "*",
     "redux": "*"
   },
   "dependencies": {

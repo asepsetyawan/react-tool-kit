@@ -1,10 +1,10 @@
 {
-  "name": "@asep.setiawan/react-kit",
-  "version": "1.0.5",
+  "name": "@asep.setiawan/react-tool-kit",
+  "version": "1.0.6",
   "description": "React tool kit",
   "main": "src/index.js",
   "bin": {
-    "@asep.setiawan/react-kit": "./src/index.js"
+    "react-tool-kit": "./src/index.js"
   },
   "files": [
     "src",

@@ -10,12 +10,20 @@ import { HOME_PATH } from '../url'
 import CoreLayout from '../layouts/CoreLayout'
 import amp from '../amp'
 
+const loggerConfig = {
+  enableStream: !__DEV__,
+  service: 'research-kits',
+  streamHost: '0.0.0.0', // '172.18.60.218' helios-staging
+  streamPort: 2222
+}
+
 const app = createReactServer({
   createApolloClient,
   createStore,
   getInitialData,
   homePath: HOME_PATH,
   assetUrl: process.env.APP_ASSET_PATH,
+  loggerConfig,
   customMiddleware: ins => {
     ins.use(amp)
 
@@ -24,8 +32,7 @@ const app = createReactServer({
       const backendUrl =
         process.env.APP_BACKEND_URL || 'https://staging.example.com'
       const graphUrl =
-        process.env.APP_GRAPHQL_URL ||
-        'https://gql-staging.example.com/graphql'
+        process.env.APP_GRAPHQL_URL || 'https://gql-staging.example.com/graphql'
       console.log('APP_BACKEND_URL = ' + backendUrl)
       console.log('APP_GRAPHQL_URL = ' + graphUrl)
 

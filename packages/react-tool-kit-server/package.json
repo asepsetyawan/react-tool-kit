@@ -46,9 +46,10 @@
   },
   "dependencies": {
     "@loadable/server": "5.6.0",
+    "@log4js-node/logstashudp": "1.0.0",
     "ejs": "2.6.1",
     "express": "^4.16.3",
-    "morgan": "^1.9.0",
+    "log4js": "4.3.0",
     "node-fetch": "2.6.1",
     "react-redux": "^5.0.7",
     "serialize-javascript": "^1.5.0"

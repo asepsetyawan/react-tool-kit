@@ -1,6 +1,7 @@
 import express from 'express';
-import morgan from 'morgan';
 import path from 'path';
+import log4js from 'log4js';
+import { defaultLogerConfig, getLogger, logErrorSerializer } from './logger';
 
 import serverRender from './serverRenderer';
 
@@ -14,25 +15,23 @@ export function createReactServer(config) {
     getInitialData,
     homePath,
     handleGqlError = () => 500,
-    customMiddleware = () => {}
+    customMiddleware = () => {},
+    loggerConfig = defaultLogerConfig,
   } = config;
   let context;
   const app = express();
-  const loggerEnv = process.env.NODE_ENV === 'development' ? 'dev' : 'combined';
-  const logger = morgan(loggerEnv, {
-    skip: function(req, res) {
-      if (process.env.NODE_ENV === 'development') {
-        return false;
-      }
-      return res.statusCode < 400;
-    }
-  });
 
-  app.use(logger);
+  const logger = getLogger(loggerConfig);
+  const isDevelopment = process.env.NODE_ENV === 'development';
 
-  if (process.env.NODE_ENV === 'development') {
-    const { devMiddleware } = require('@asep.setiawan/react-tool-kit/lib/express-dev');
+  if (isDevelopment) {
+    const {
+      devMiddleware,
+    } = require('@asep.setiawan/react-tool-kit/lib/express-dev');
     devMiddleware(app);
+
+    // development console
+    app.use(log4js.connectLogger(logger.console));
   }
 
   app.set('view engine', 'ejs');
@@ -49,8 +48,18 @@ export function createReactServer(config) {
     req.headers.cookie && (store['cookies'] = req.headers.cookie);
     const promises = getInitialData(req, store);
     Promise.all(promises)
-      .catch(err => {
-        console.error('Error getInitialData:\n', err);
+      .catch((err) => {
+        if (isDevelopment) {
+          logger.console.error('[Initial Data] Error:', err);
+        }
+
+        if (loggerConfig.enableStream) {
+          const error = logErrorSerializer(err, loggerConfig.service, {
+            type: 'initial-data',
+            url: req.originalUrl,
+          });
+          logger.streamer.error(error.message, error.object);
+        }
       })
       .then(() => {
         context = {};
@@ -58,27 +67,52 @@ export function createReactServer(config) {
           ...config,
           expressCtx: { req, res },
           store,
-          context
+          context,
         };
         return serverRender(data);
       })
       .then(({ html, apolloErr }) => {
         if (apolloErr) {
-          console.error('Apollo ERR: ', apolloErr);
+          if (isDevelopment) {
+            logger.console.error('[GQL] Error:', apolloErr);
+          }
+
           const status = handleGqlError({ req, res }, apolloErr);
+          if (loggerConfig.enableStream) {
+            const error = logErrorSerializer(apolloErr, loggerConfig.service, {
+              status,
+              type: 'gql-error',
+              url: req.originalUrl,
+            });
+            logger.streamer.error(error.message, error.object);
+          }
           return res.status(status).send(html);
         }
+
         if (context.status) {
           console.log('Context status: ', context.status);
           return res.status(context.status).send(html);
         }
+
         if (context.url) {
           return res.redirect(302, context.url);
         }
+
         res.send(html);
       })
-      .catch(err => {
-        console.error(err);
+      .catch((err) => {
+        if (isDevelopment) {
+          logger.console.error('[Render] Error:', String(err));
+        }
+
+        if (loggerConfig.enableStream) {
+          const error = logErrorSerializer(err, loggerConfig.service, {
+            type: 'render',
+            url: req.originalUrl,
+          });
+          logger.streamer.error(error.message, error.object);
+        }
+
         return res.sendStatus(500);
       });
   });
